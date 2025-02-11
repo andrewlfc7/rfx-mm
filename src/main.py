@@ -29,14 +29,12 @@ async def main():
     try:
         logger.info("Initializing market maker components...")
 
-        # Initialize position handler
         position_handler = PositionHandler(
             config=config, 
             symbol="BTC/USD [WETH-USDC]"
         )
         logger.info("Position handler initialized")
         
-        # Initialize inventory manager
         inventory_manager = DexInventoryManager(
             position_handler=position_handler,
             max_position=50.0,
@@ -44,7 +42,6 @@ async def main():
         )
         logger.info("Inventory manager initialized")
         
-        # Initialize quote generator
         quote_generator = QuoteGenerator(
             inventory_manager=inventory_manager,
             num_levels=5,
