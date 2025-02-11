@@ -1,0 +1,25 @@
+{
+    "long": {
+        "BTC/USD [WETH-USDC]": 0.00797158103913671,
+        "ETH/USD [WETH-USDC]": -0.0072,
+        "SOL/USD [WETH-USDC]": 0.0,
+        "ZK/USD [ZK-USDC]": -0.00733933205814226,
+        "ETH/BTC [WETH-USDC]": 0.0,
+        "BTC/USD [wstETH-deUSD]": 0.0,
+        "ETH/USD [wstETH-deUSD]": 0.0,
+        "wstETH/USD [wstETH-deUSD]": 0.0,
+        "SOL/USD [wstETH-deUSD]": 0.0
+    },
+    "short": {
+        "BTC/USD [WETH-USDC]": -0.0072,
+        "ETH/USD [WETH-USDC]": 0.011917008072574191,
+        "SOL/USD [WETH-USDC]": -0.0,
+        "ZK/USD [ZK-USDC]": 0.007513961031073673,
+        "ETH/BTC [WETH-USDC]": -0.0,
+        "BTC/USD [wstETH-deUSD]": -0.0,
+        "ETH/USD [wstETH-deUSD]": -0.0,
+        "wstETH/USD [wstETH-deUSD]": -0.0,
+        "SOL/USD [wstETH-deUSD]": -0.0
+    },
+    "parameter": "funding_apr"
+}

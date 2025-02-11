@@ -1,0 +1,169 @@
+{
+    "long": {
+        "BTC/USD [WETH-USDC]": {
+            "market_address": "0x62170Af269E9Acd09a89279C0485e89aA42857A3",
+            "market_symbol": "BTC/USD [WETH-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "WETH",
+                "short_token_symbol": "USDC"
+            },
+            "value": 88099.46684672117
+        },
+        "ETH/USD [WETH-USDC]": {
+            "market_address": "0x8EFA54951bF70D9775DFe8F9364df83aD1e1a8cF",
+            "market_symbol": "ETH/USD [WETH-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "WETH",
+                "short_token_symbol": "USDC"
+            },
+            "value": 272662.17463550426
+        },
+        "SOL/USD [WETH-USDC]": {
+            "market_address": "0x822eeCbF89f2431d50Bb540980Cb98F01a5A4eea",
+            "market_symbol": "SOL/USD [WETH-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "WETH",
+                "short_token_symbol": "USDC"
+            },
+            "value": 0.0
+        },
+        "ZK/USD [ZK-USDC]": {
+            "market_address": "0x9D4d54c8661a17604A46B849DED78Cf20127fB92",
+            "market_symbol": "ZK/USD [ZK-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "ZK",
+                "short_token_symbol": "USDC"
+            },
+            "value": 84758.70539989945
+        },
+        "ETH/BTC [WETH-USDC]": {
+            "market_address": "0x79302b73acF3ec1c18433ef6E04F814C1Cdc408F",
+            "market_symbol": "ETH/BTC [WETH-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "WETH",
+                "short_token_symbol": "USDC"
+            },
+            "value": 0.0
+        },
+        "BTC/USD [wstETH-deUSD]": {
+            "market_address": "0x29c8973cfc64780B9d7fb532A014b3F66DBfD9d1",
+            "market_symbol": "BTC/USD [wstETH-deUSD]",
+            "market_tokens": {
+                "long_token_symbol": "wstETH",
+                "short_token_symbol": "deUSD"
+            },
+            "value": 0.0
+        },
+        "ETH/USD [wstETH-deUSD]": {
+            "market_address": "0x2B7402FfecBC34eBB2a5E87A8F22677Ba0a3b2F5",
+            "market_symbol": "ETH/USD [wstETH-deUSD]",
+            "market_tokens": {
+                "long_token_symbol": "wstETH",
+                "short_token_symbol": "deUSD"
+            },
+            "value": 0.0
+        },
+        "wstETH/USD [wstETH-deUSD]": {
+            "market_address": "0x7D00EBe4a0aA10eB99dC661e5A305fb3cdB79E8c",
+            "market_symbol": "wstETH/USD [wstETH-deUSD]",
+            "market_tokens": {
+                "long_token_symbol": "wstETH",
+                "short_token_symbol": "deUSD"
+            },
+            "value": 0.0
+        },
+        "SOL/USD [wstETH-deUSD]": {
+            "market_address": "0x3bA5B5bd204D2a3DC42eD520626744acaCbBa215",
+            "market_symbol": "SOL/USD [wstETH-deUSD]",
+            "market_tokens": {
+                "long_token_symbol": "wstETH",
+                "short_token_symbol": "deUSD"
+            },
+            "value": 0.0
+        }
+    },
+    "short": {
+        "BTC/USD [WETH-USDC]": {
+            "market_address": "0x62170Af269E9Acd09a89279C0485e89aA42857A3",
+            "market_symbol": "BTC/USD [WETH-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "WETH",
+                "short_token_symbol": "USDC"
+            },
+            "value": 97540.56103796886
+        },
+        "ETH/USD [WETH-USDC]": {
+            "market_address": "0x8EFA54951bF70D9775DFe8F9364df83aD1e1a8cF",
+            "market_symbol": "ETH/USD [WETH-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "WETH",
+                "short_token_symbol": "USDC"
+            },
+            "value": 164736.62226458214
+        },
+        "SOL/USD [WETH-USDC]": {
+            "market_address": "0x822eeCbF89f2431d50Bb540980Cb98F01a5A4eea",
+            "market_symbol": "SOL/USD [WETH-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "WETH",
+                "short_token_symbol": "USDC"
+            },
+            "value": 0.0
+        },
+        "ZK/USD [ZK-USDC]": {
+            "market_address": "0x9D4d54c8661a17604A46B849DED78Cf20127fB92",
+            "market_symbol": "ZK/USD [ZK-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "ZK",
+                "short_token_symbol": "USDC"
+            },
+            "value": 82788.86211620788
+        },
+        "ETH/BTC [WETH-USDC]": {
+            "market_address": "0x79302b73acF3ec1c18433ef6E04F814C1Cdc408F",
+            "market_symbol": "ETH/BTC [WETH-USDC]",
+            "market_tokens": {
+                "long_token_symbol": "WETH",
+                "short_token_symbol": "USDC"
+            },
+            "value": 0.0
+        },
+        "BTC/USD [wstETH-deUSD]": {
+            "market_address": "0x29c8973cfc64780B9d7fb532A014b3F66DBfD9d1",
+            "market_symbol": "BTC/USD [wstETH-deUSD]",
+            "market_tokens": {
+                "long_token_symbol": "wstETH",
+                "short_token_symbol": "deUSD"
+            },
+            "value": 0.0
+        },
+        "ETH/USD [wstETH-deUSD]": {
+            "market_address": "0x2B7402FfecBC34eBB2a5E87A8F22677Ba0a3b2F5",
+            "market_symbol": "ETH/USD [wstETH-deUSD]",
+            "market_tokens": {
+                "long_token_symbol": "wstETH",
+                "short_token_symbol": "deUSD"
+            },
+            "value": 12.912697222431952
+        },
+        "wstETH/USD [wstETH-deUSD]": {
+            "market_address": "0x7D00EBe4a0aA10eB99dC661e5A305fb3cdB79E8c",
+            "market_symbol": "wstETH/USD [wstETH-deUSD]",
+            "market_tokens": {
+                "long_token_symbol": "wstETH",
+                "short_token_symbol": "deUSD"
+            },
+            "value": 0.0
+        },
+        "SOL/USD [wstETH-deUSD]": {
+            "market_address": "0x3bA5B5bd204D2a3DC42eD520626744acaCbBa215",
+            "market_symbol": "SOL/USD [wstETH-deUSD]",
+            "market_tokens": {
+                "long_token_symbol": "wstETH",
+                "short_token_symbol": "deUSD"
+            },
+            "value": 0.0
+        }
+    },
+    "parameter": "open_interest"
+}
