@@ -28,6 +28,12 @@ use to set the max amount of active orders we can have submitted and the order t
 
 is used with the public feed method to compute the feature using the trade imblance and orderbook imblance to determine the skew to use in the quoting class based on the current market state.
 
+
+## To run
+
+to run just add wallet info in the .env file and install the packages and then cd to the src then run python3 main.py
+
+
 ## Example Config
 
 ```python
@@ -70,4 +76,5 @@ oms = OrderManagementSystem(
 )
 
 
-to run just add wallet info in the .env file and install the packages and then cd to the src then run python3 main.py
+
+
