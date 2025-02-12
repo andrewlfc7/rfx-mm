@@ -10,19 +10,21 @@ from oms.quote import  QuoteGenerator
 import uvloop
 from pyrfx.config_manager import ConfigManager
 from typing import Any
-
+from utils.env import get_env_vars
 
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 logger = logging.getLogger(__name__)
 
+env_vars = get_env_vars()
+
 
 config = ConfigManager(
-        chain="zkSync",
-        user_wallet_address="",
-        private_key="",
-        save_to_json=False
-     )
+    chain="zkSync",
+    user_wallet_address=env_vars["USER_WALLET_ADDRESS"],
+    private_key=env_vars["PRIVATE_KEY"],
+    save_to_json=False
+)
 
 
 async def main():
