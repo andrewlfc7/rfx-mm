@@ -5,3 +5,4 @@ numba
 aiohttp
 uvloop
 pyrfx
+dotenv
