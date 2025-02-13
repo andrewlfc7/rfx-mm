@@ -54,8 +54,12 @@ Also, the bot is currently set up for BTC since it has the most liquidity on RFX
 
 `parameters.yaml`:
 ```yaml
-position:
-  symbol: "BTC/USD [WETH-USDC]"
+
+public_feed:
+  symbol: "btcusdt"
+  token_address: "0x00957c690A5e3f329aDb606baD99cEd9Ad701a98"
+  market_symbol: "BTC/USD [WETH-USDC]"
+  feature_compute_delay: 0.5
 
 inventory:
   max_position: 50.0

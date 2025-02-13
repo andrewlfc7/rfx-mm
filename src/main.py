@@ -13,11 +13,10 @@ from typing import Any
 from utils.env import get_env_vars
 import yaml
 
-asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
-
 logger = logging.getLogger(__name__)
 
 env_vars = get_env_vars()
+
 
 with open("parameters.yaml", "r") as file:
     parameters = yaml.safe_load(file)
@@ -37,7 +36,7 @@ async def main():
 
         position_handler = PositionHandler(
             config=config, 
-            symbol="BTC/USD [WETH-USDC]"
+            symbol=parameters['public_feed']['market_symbol']
         )
         logger.info("Position handler initialized")
         
@@ -61,11 +60,11 @@ async def main():
         logger.info("Quote generator initialized")
 
         public_feed = PublicFeed(
-            symbol="btcusdt",
+            symbol=parameters['public_feed']['symbol'],
             config=config,
-            token_address="0x00957c690A5e3f329aDb606baD99cEd9Ad701a98",
-            market_symbol="BTC/USD [WETH-USDC]",
-            feature_compute_delay=0.5
+            token_address=parameters['public_feed']['token_address'],
+            market_symbol=parameters['public_feed']['market_symbol'],
+            feature_compute_delay=parameters['public_feed']['feature_compute_delay']
         )
         logger.info("Public feed initialized")
 

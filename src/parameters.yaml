@@ -1,3 +1,10 @@
+public_feed:
+  symbol: "btcusdt"
+  token_address: "0x00957c690A5e3f329aDb606baD99cEd9Ad701a98"
+  market_symbol: "BTC/USD [WETH-USDC]"
+  feature_compute_delay: 0.5
+
+  
 
 inventory:
   max_position: 50.0
