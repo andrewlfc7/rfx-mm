@@ -49,7 +49,7 @@ Uses market data from PublicFeed to compute trade and order book imbalances. Hel
 
 All bot settings are stored in `parameters.yaml`
 
-Example `parameters.yaml`:
+`parameters.yaml`:
 ```yaml
 position:
   symbol: "BTC/USD [WETH-USDC]"
