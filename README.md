@@ -47,7 +47,7 @@ Uses market data from PublicFeed to compute trade and order book imbalances. Hel
 
 ## Configuration
 
-All bot settings are stored in `parameters.yaml`, making it easy to tweak things without modifying the code.
+All bot settings are stored in `parameters.yaml`
 
 Example `parameters.yaml`:
 ```yaml
