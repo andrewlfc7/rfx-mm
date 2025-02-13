@@ -47,7 +47,10 @@ Uses market data from PublicFeed to compute trade and order book imbalances. Hel
 
 ## Configuration
 
-All bot settings are stored in `parameters.yaml`
+All of the bot config setting are stored in the  `parameters.yaml`
+
+Also, the bot is currently set up for BTC since it has the most liquidity on RFX, but it can be easily tweaked for other coins. Just make sure the coin is also traded on Binance.
+
 
 `parameters.yaml`:
 ```yaml
