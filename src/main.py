@@ -11,12 +11,16 @@ import uvloop
 from pyrfx.config_manager import ConfigManager
 from typing import Any
 from utils.env import get_env_vars
+import yaml
 
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 logger = logging.getLogger(__name__)
 
 env_vars = get_env_vars()
+
+with open("parameters.yaml", "r") as file:
+    parameters = yaml.safe_load(file)
 
 
 config = ConfigManager(
@@ -39,18 +43,21 @@ async def main():
         
         inventory_manager = DexInventoryManager(
             position_handler=position_handler,
-            max_position=50.0,
-            max_imbalance=10.0
+            max_position=parameters["inventory"]["max_position"],
+            max_imbalance=parameters["inventory"]["max_imbalance"]
         )
         logger.info("Inventory manager initialized")
         
+
         quote_generator = QuoteGenerator(
             inventory_manager=inventory_manager,
-            num_levels=5,
-            total_quote_size=100.0,
-            min_spread=0.0001,  
-            vol_impact=1.0
+            num_levels=parameters["quote"]["num_levels"],
+            total_quote_size=parameters["quote"]["total_quote_size"],
+            min_spread=parameters["quote"]["min_spread"],
+            vol_impact=parameters["quote"]["vol_impact"]
         )
+
+
         logger.info("Quote generator initialized")
 
         public_feed = PublicFeed(
@@ -64,20 +71,20 @@ async def main():
 
         order_client = OrderClient(
             config=config,
-            market_symbol="BTC/USD [WETH-USDC]",
-            collateral_token="USDC",
-            initial_collateral=5.0,
-            debug_mode=False
+            market_symbol=parameters["order"]["market_symbol"],
+            collateral_token=parameters["order"]["collateral_token"],
+            initial_collateral=parameters["order"]["initial_collateral"],
+            debug_mode=parameters["order"]["debug_mode"]
         )
         logger.info("Order client initialized")
-        
+
         oms = OrderManagementSystem(
             order_client=order_client,
-            max_active_orders=20,
-            order_timeout=60.0,
-            initial_collateral=5,
-            slippage_percent=0.01
+            max_active_orders=parameters["oms"]["max_active_orders"],
+            order_timeout=parameters["oms"]["order_timeout"],
+            slippage_percent=parameters["oms"]["slippage_percent"]
         )
+
         logger.info("Order management system initialized")
 
         async def monitor_quotes():
