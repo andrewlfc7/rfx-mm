@@ -1,6 +1,6 @@
 import aiohttp
 import asyncio
-import json
+import orjson
 
 class BinanceClient:
     def __init__(self, base_url="https://api.binance.com"):
@@ -9,7 +9,7 @@ class BinanceClient:
     async def fetch(self, session, endpoint, params):
         url = f"{self.base_url}{endpoint}"
         async with session.get(url, params=params, ssl=False) as response:
-            return await response.json()
+            return await response.orjson()
 
     async def get_order_book(self, symbol, limit=100):
         endpoint = "/api/v3/depth"

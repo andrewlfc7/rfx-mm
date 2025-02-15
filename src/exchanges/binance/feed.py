@@ -1,9 +1,8 @@
 import asyncio
 from typing import Tuple, Dict, List, Any
-import json
 import ssl
 import websockets
-
+import orjson
 from exchanges.binance.ws.handlers.trades import BinanceTradesHandler
 from exchanges.binance.ws.handlers.kline import BinanceOhlcvHandler
 from exchanges.binance.ws.handlers.orderbook import BinanceOrderbookHandler
@@ -107,11 +106,11 @@ class BinanceWebsocket:
 
         async with websockets.connect(url, ssl=ssl_context) as websocket:
             print(f"Connected to {url}")
-            await websocket.send(json.dumps(request))
+            await websocket.send(orjson.dumps(request))
             try:
                 while True:
                     recv = await websocket.recv()
-                    data = json.loads(recv)
+                    data = orjson.loads(recv)
             except websockets.ConnectionClosed:
                 print("Connection closed, reconnecting...")
                 await self.start_public_ws(url, request)

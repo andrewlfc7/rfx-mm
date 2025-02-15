@@ -2,8 +2,6 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Optional, Dict, Any
 from hexbytes import HexBytes
-
-# from eth_typing import HexBytes
 import logging
 from pyrfx.custom_error_parser import CustomErrorParser
 from pyrfx.order.limit_cancel import LimitCancelOrder
