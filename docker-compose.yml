@@ -1,0 +1,11 @@
+services:
+  market-maker:
+    build: .
+    volumes:
+      - ./logs:/app/logs
+      - ./src/parameters.yaml:/app/src/parameters.yaml
+      - ./src/.env:/app/src/.env 
+    environment:
+      - USER_WALLET_ADDRESS=${USER_WALLET_ADDRESS:-}  
+      - PRIVATE_KEY=${PRIVATE_KEY:-}  
+    restart: unless-stopped

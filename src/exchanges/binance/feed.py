@@ -6,10 +6,13 @@ import orjson
 from exchanges.binance.ws.handlers.trades import BinanceTradesHandler
 from exchanges.binance.ws.handlers.kline import BinanceOhlcvHandler
 from exchanges.binance.ws.handlers.orderbook import BinanceOrderbookHandler
-
 from exchanges.binance.get.client import BinanceClient
 from exchanges.binance.ws.public import BinancePublicWs
+import logging
 
+
+
+logger = logging.getLogger(__name__)
 
 class BinanceWebsocket:
     """
@@ -99,23 +102,53 @@ class BinanceWebsocket:
         except Exception as e:
             print(f"Public stream error: {e}")
 
+
+
     async def start_public_ws(self, url: str, request: List[Dict[str, Any]]) -> None:
+        """Start websocket connection for public data"""
         ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
         ssl_context.check_hostname = False
         ssl_context.verify_mode = ssl.CERT_NONE
 
-        async with websockets.connect(url, ssl=ssl_context) as websocket:
-            print(f"Connected to {url}")
-            await websocket.send(orjson.dumps(request))
+        while True:
             try:
-                while True:
-                    recv = await websocket.recv()
-                    data = orjson.loads(recv)
+                async with websockets.connect(url, ssl=ssl_context) as websocket:
+                    logger.info(f"Connected to {url}")
+                    
+                    request_str = orjson.dumps(request).decode('utf-8')
+                    await websocket.send(request_str)
+                    
+                    while True:
+                        try:
+                            recv = await websocket.recv()
+                            if isinstance(recv, str):
+                                data = orjson.loads(recv.encode('utf-8'))
+                            else:
+                                data = orjson.loads(recv)
+                                
+                            await self.start_public_ws(url, request)
+                            
+                        except orjson.JSONDecodeError as e:
+                            logger.error(f"JSON decode error: {e}, raw data: {recv[:100]}...")
+                            continue
+                            
+                        except Exception as e:
+                            logger.error(f"Error processing message: {e}")
+                            continue
+                            
             except websockets.ConnectionClosed:
-                print("Connection closed, reconnecting...")
-                await self.start_public_ws(url, request)
+                    logger.warning("Connection closed, attempting to reconnect...")
+                    await asyncio.sleep(1)  
+                    
             except Exception as e:
-                print(f"Error with public websocket: {e}")
+                    logger.error(f"Websocket error: {e}")
+                    await asyncio.sleep(1)  
+                    
+            except Exception as e:
+                logger.error(f"Critical websocket error: {e}")
+                await asyncio.sleep(5)  
+
+
 
     async def start(self) -> None:
         self.create_handlers()
@@ -138,3 +171,4 @@ class BinanceWebsocket:
             "trades": trades_data,
             "ohlcv": ohlcv_data,
         }
+

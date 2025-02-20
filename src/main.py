@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 env_vars = get_env_vars()
 
 
-with open("parameters.yaml", "r") as file:
+with open("/app/src/parameters.yaml", "r") as file:
     parameters = yaml.safe_load(file)
 
 
@@ -179,3 +179,4 @@ if __name__ == "__main__":
     except Exception as e:
         logger.error(f"Fatal error: {e}")
         raise
+

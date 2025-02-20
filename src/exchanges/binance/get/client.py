@@ -1,15 +1,39 @@
 import aiohttp
 import asyncio
 import orjson
+import logging
+
+
+logger = logging.getLogger(__name__)
+
 
 class BinanceClient:
     def __init__(self, base_url="https://api.binance.com"):
         self.base_url = base_url
 
     async def fetch(self, session, endpoint, params):
-        url = f"{self.base_url}{endpoint}"
-        async with session.get(url, params=params, ssl=False) as response:
-            return await response.orjson()
+        """Fetch data from API endpoint using orjson"""
+        try:
+            url = f"{self.base_url}{endpoint}"
+            async with session.get(url, params=params, ssl=False) as response:
+                if response.status != 200:
+                    logger.error(f"API error: {response.status} for {url}")
+                    return None
+                    
+                data = await response.read() 
+                return orjson.loads(data) 
+                
+        except aiohttp.ClientError as e:
+            logger.error(f"Network error fetching {endpoint}: {e}")
+            return None
+            
+        except orjson.JSONDecodeError as e:
+            logger.error(f"JSON decode error for {endpoint}: {e}")
+            return None
+            
+        except Exception as e:
+            logger.error(f"Unexpected error fetching {endpoint}: {e}")
+            return None
 
     async def get_order_book(self, symbol, limit=100):
         endpoint = "/api/v3/depth"
