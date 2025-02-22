@@ -86,19 +86,31 @@ oms:
 
 ## Docker set up 
 
+To run the bot using docker, first tweak parameter config for setting bot's config and then ensure that docker and docker-compose is installed. Then you can run the following commands to build the docker container
+
+if there's an problem with getting the python image can use this to pull the image first
+
+After the build completes, add the wallet info
+
+the docker-compose up command will let you see all of the logs in the terminal but can add -d at the end of it to run in detach mode.
+
+Commands to use step by step 
 ```bash
 
-To run the bot using docker, first tweak parameter config for setting bot's config and then ensure that docker and docker-compose is installed. Then can run the following commands to build the docker container ; 
+ ; 
 
 cd rfx-mm
 
 sudo docker-compose build
 
-if there's an problem with getting the python image can use this to pull the image first : docker pull python:3.11.4-slim
+docker pull python:3.11.4-slim
 
-After the build completes, add the wallet info with: USER_WALLET_ADDRESS= PRIVATE_KEY= docker-compose up 
+USER_WALLET_ADDRESS= PRIVATE_KEY= docker-compose up 
 
-the command above will let you see all of the logs in the terminal but can add -d at the end of it to run in detach mode.
+or
+
+USER_WALLET_ADDRESS= PRIVATE_KEY= docker-compose up -d
+
 
 ```
 
