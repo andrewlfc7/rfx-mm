@@ -97,8 +97,6 @@ the docker-compose up command will let you see all of the logs in the terminal b
 Commands to use step by step 
 ```bash
 
- ; 
-
 cd rfx-mm
 
 sudo docker-compose build
