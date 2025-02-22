@@ -83,3 +83,27 @@ oms:
   slippage_percent: 0.01
 ```
 
+
+## Docker set up 
+
+```bash
+
+To run the bot using docker, first tweak parameter config for setting bot's config and then ensure that docker and docker-compose is installed. Then can run the following commands to build the docker container ; 
+
+cd rfx-mm
+
+sudo docker-compose build
+
+if there's an problem with getting the python image can use this to pull the image first : docker pull python:3.11.4-slim
+
+After the build completes, add the wallet info with: USER_WALLET_ADDRESS= PRIVATE_KEY= docker-compose up 
+
+the command above will let you see all of the logs in the terminal but can add -d at the end of it to run in detach mode.
+
+```
+
+
+## Without Docker
+
+Just refer to the Setup & Running sections to run the bot without using docker 
+
