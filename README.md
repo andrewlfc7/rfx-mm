@@ -84,13 +84,13 @@ oms:
 ```
 
 
-## Docker set up 
+## Docker Setup 
 
 To run the bot using docker, first tweak parameter config for setting bot's config and then ensure that docker and docker-compose is installed. Then you can run the following commands to build the docker container
 
-if there's an problem with getting the python image can use this to pull the image first
+if there's an problem with getting the python image can use the third command below to pull the image first
 
-After the build completes, add the wallet info
+After the build completes, add the wallet info into either fourth or fifth command 
 
 the docker-compose up command will let you see all of the logs in the terminal but can add -d at the end of it to run in detach mode.
 
